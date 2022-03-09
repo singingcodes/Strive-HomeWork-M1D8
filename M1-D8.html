@@ -8,7 +8,7 @@
     </style>
   </head>
   <body>
-    <div>
+    <div id="changeP" onmouseover="addParagraph(event)">
       <h1 class="title" onmouseover="changeTitle(event)">This is the title of the page</h1>
       <h2 class="title" onmouseover="addClassToTitle()">This is the subtitle of the page</h2>
     </div>
@@ -58,12 +58,10 @@
       const changeTitle = function (newTitle) {
 
         let newTitleNode = document.getElementsByTagName("h1")
-        newTitleNode[0].innerText = "I am being changed"
-        //
-      // let changeTitleNode = document.querySelectorAll(".title")
-      // for (let i =0; i <changeTitleNode.length; i++){
-      //   changeTitleNode[i].innerText = "I am being changed"
-     // }
+        for (let  i= 0; i < newTitleNode.length; i++) {
+          newTitleNode[i].innerText = "I am being changed"
+          
+        }
       };
 
       /* EXERCISE 2
@@ -82,8 +80,11 @@
 
       const changePcontent = function () {
 
-        let targetNode = document.getElementById("addClassToTitle")
-        targetNode.innerText = "new paragraph content"
+        let targetNode = document.querySelectorAll("div p")
+        for (let i  = 0; i < targetNode.length; i++) {
+          targetNode[i].innerText=  "Hello World!! I am changed"
+          
+        }
         //
       };
 
@@ -92,8 +93,11 @@
       */
 
       const changeUrls = function () {
-        let newLinkNode = document.getElementById("anchor")
-        newLinkNode.href = "https://www.google.com"
+        let newLinkNode = document.querySelectorAll("a")
+        for (let i = 0; i < newLinkNode.length; i++) {       
+        newLinkNode[i].href= "https://www.google.com"
+        }
+       
         //
       };
 
@@ -114,6 +118,9 @@
       */
 
       const addParagraph = function (content) {
+        let p = document.createElement("p")
+        let targetDiv = document.querySelectorAll("changeP")
+        targetDiv[1].appendChild(p).innerText = "new paragraph added"
         //
       };
 
@@ -161,6 +168,8 @@
       */
 
       window.onload = function () {
+
+       // alert("Welcome!!!")
         //
       };
 
